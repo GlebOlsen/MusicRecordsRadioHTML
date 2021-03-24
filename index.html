@@ -13,7 +13,7 @@
     <div id="app">
         <button id="GetAllButton" v-on:click="getAllRecords" class="btn btn-primary">Get All Records</button>
         <h3>List</h3>
-            <ul v-if="musicrecords">
+            <ul id="recordlist" v-if="musicrecords">
                 <li v-for="musicrecord in musicrecords.slice(musicrecords.length-4,musicrecords.length)">
                 <!-- shows last 5 books -->
                     {{musicrecord.id}} {{musicrecord.title}} {{musicrecord.artist}} {{musicrecord.duration}}
