@@ -9,8 +9,15 @@
     <title>MusicRecordsRadio</title>
 </head>
 <body>
-        <h1>
-
-        </h1>
+    <h1>MusicRecordsRadio</h1>
+    <h3>List</h3>
+        <ul v-if="musicrecords">
+            <li v-for="musicrecord in musicrecords.slice(musicrecords.length-4,musicrecords.length)">
+                <!-- shows last 5 books -->
+                {{musicrecord.id}} {{musicrecord.title}} {{musicrecord.artist}} {{book.duration}}
+            </li>
+        </ul>
+        <div v-else>No musicrecords</div>
+    <script src="index.js"></script>  
 </body>
 </html>
