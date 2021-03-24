@@ -10,14 +10,17 @@
 </head>
 <body>
     <h1>MusicRecordsRadio</h1>
-    <h3>List</h3>
-        <ul v-if="musicrecords">
-            <li v-for="musicrecord in musicrecords.slice(musicrecords.length-4,musicrecords.length)">
+    <div id="app">
+        <button id="GetAllButton" v-on:click="getAllRecords" class="btn btn-primary">Get All Records</button>
+        <h3>List</h3>
+            <ul v-if="musicrecords">
+                <li v-for="musicrecord in musicrecords.slice(musicrecords.length-4,musicrecords.length)">
                 <!-- shows last 5 books -->
-                {{musicrecord.id}} {{musicrecord.title}} {{musicrecord.artist}} {{book.duration}}
-            </li>
-        </ul>
-        <div v-else>No musicrecords</div>
+                    {{musicrecord.id}} {{musicrecord.title}} {{musicrecord.artist}} {{musicrecord.duration}}
+                </li>
+            </ul>
+            <div v-else>No musicrecords</div>
+    </div>
     <script src="index.js"></script>  
 </body>
 </html>
