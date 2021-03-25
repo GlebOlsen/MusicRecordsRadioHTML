@@ -3,7 +3,9 @@ const baseUrl = "https://pairprogram-radiorest.azurewebsites.net/api/radios"
 Vue.createApp({
     data(){
         return{
-            musicrecords: []
+            musicrecords: [],
+            musicrecordId: null,
+            singlemusicrecord: null
         }
     },
     methods: {
@@ -17,7 +19,16 @@ Vue.createApp({
             } catch (ex) {
                 alert(ex.message)
             }
-        }
+        },
+        async getmusicrecordById(id) {
+            const url = baseUrl + "/" + id
+            try {
+                const response = await axios.get(url)
+                this.singlemusicrecord = await response.data
+            } catch (ex) {
+                alert(ex.message)
+            }
+        },
     }
     
 }).mount("#app")
