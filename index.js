@@ -5,7 +5,9 @@ Vue.createApp({
         return{
             musicrecords: [],
             musicrecordId: null,
-            singlemusicrecord: null
+            singlemusicrecord: null,
+            addData: { title: "", artist: "", duration: 0, year: 0 },
+            addMessage: ""
         }
     },
     methods: {
@@ -29,6 +31,15 @@ Vue.createApp({
                 alert(ex.message)
             }
         },
+        async addmusicrecord() {
+            console.log(this.addData)
+            try {
+                response = await axios.post(baseUrl, this.addData)
+                this.addMessage = "response " + response.status + " " + response.statusText
+                this.getAllRecords()
+            } catch (ex) {
+                alert(ex.message)
+            }
+        },
     }
-    
 }).mount("#app")
