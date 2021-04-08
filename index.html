@@ -34,6 +34,11 @@
             <input id="AddYearInput" v-model.number="addData.year" placeholder="Year of release"/>
             <button id="AddMusicRecordButton" v-on:click="addmusicrecord()" class="btn btn-success">Add</button>
             <div>{{addMessage}}</div>
+
+            <h2>Delete Musicrecord</h2>
+            <input id="InputDeleteId" v-model.number="deleteId" placeholder="Id">
+            <button id="DeleteId" v-on:click="deletemusicrecord(deleteId)" class="btn btn-primary">Delete a MusicRecord</button>
+            {{deleteMessage}}
     </div>
     <script src="index.js"></script>  
 </body>

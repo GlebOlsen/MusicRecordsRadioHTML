@@ -1,4 +1,4 @@
-const baseUrl = "https://pairpromusicrecords.azurewebsites.net/"
+const baseUrl = "https://pairprogradiorest.azurewebsites.net/api/radios"
 
 Vue.createApp({
     data(){
@@ -7,7 +7,9 @@ Vue.createApp({
             musicrecordId: null,
             singlemusicrecord: null,
             addData: { title: "", artist: "", duration: 0, year: 0 },
-            addMessage: ""
+            addMessage: "",
+            deleteId: 0,
+            deleteMessage: ""
         }
     },
     methods: {
@@ -41,5 +43,15 @@ Vue.createApp({
                 alert(ex.message)
             }
         },
+        async deletemusicrecord(deleteId) {
+            const url = baseUrl + "/" + deleteId 
+            try{
+                response = await axios.delete(url)
+                this.deleteMessage = response.status + " " + response.statusText
+                this.getAllRecords()
+            } catch (ex) {
+                alert(ex.message)
+            }
+        }
     }
 }).mount("#app")
