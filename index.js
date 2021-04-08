@@ -1,4 +1,4 @@
-const baseUrl = "https://pairprogram-radiorest.azurewebsites.net/api/radios"
+const baseUrl = "https://pairpromusicrecords.azurewebsites.net/"
 
 Vue.createApp({
     data(){
